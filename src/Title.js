@@ -1,15 +1,12 @@
-import React, {  useState } from 'react'
+import React from 'react'
 
 function Title(props) {
-{/* <div className="App">
-    <Title data={data.title}/>
-</div> */}
 
-    return {
+    return (
         <div>
-            <h1>{title}</h1>
+            <h1>{props.title}</h1>
         </div>
-    }
+    )
 }
 
-export default Title;
+export default Title

@@ -3,13 +3,14 @@ import { BASE_URL, API_KEY } from './constants/index';
 import "./App.css";
 import axios from 'axios';
 import Title from './Title';
-import ImageOfTheDay from './ImageOfTheDay';
+import Hdurl from './hdurl';
+import Copyright from './Copyright';
 
 function App() {
 
 const [apod, setApod] = useState([])
 // const [date, setDate] = useState([])
-const [err, setError] = useState(null)
+const [error, setError] = useState('')
 
 useEffect(() => {
   axios.get(`https://api.nasa.gov/planetary/apod/?api_key=${API_KEY}`)
@@ -21,28 +22,17 @@ useEffect(() => {
     console.error(err);
     setError('Sorry')
   })
-  // const Title = props => (
-  //   <div className='App'>
-  //     <Title data={data.title}/>
-  //   </div>
-  // )
+
 }, [])
 
-const Title = props => (
-  <div className='App'>
-    <Title data={data.title}/>
-  </div>
-)
-
-  return (
+ return (
     <div className="App">
-      <p>
-        <Title title={apod.title}/>
-        <ImageOfTheDay image={apod.hdurl}/>
-        {}
-    </div>
-  );
-
-
-
-
+      {error ? <h1>{error}</h1> : null}
+      <p> 
+        <Title title={apod.title}/> 
+       <Hdurl image={apod.hdurl}/>
+       </p>
+   </div>
+  )
+ }
+export default App
