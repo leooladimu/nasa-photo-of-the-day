@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 import { BASE_URL, API_KEY } from './constants/index';
 import "./App.css";
 import axios from 'axios';
-import Title from './Title';
+import Title from './title';
 import Hdurl from './hdurl';
-import Copyright from './Copyright';
+import Copyright from './copyright';
+import Date from './date';
+import Explantion from './explantion';
+import Url from './url';
+import { Button, Alert } from 'reactstrap';
 
 function App() {
 
@@ -35,4 +39,5 @@ useEffect(() => {
    </div>
   )
  }
+
 export default App
