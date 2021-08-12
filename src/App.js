@@ -3,6 +3,7 @@ import { BASE_URL, API_KEY } from './constants/index';
 import "./App.css";
 import axios from 'axios';
 import Title from './Title';
+import ImageOfTheDay from './ImageOfTheDay';
 
 function App() {
 
@@ -36,18 +37,12 @@ const Title = props => (
   return (
     <div className="App">
       <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+        <Title title={apod.title}/>
+        <ImageOfTheDay image={apod.hdurl}/>
+        {}
     </div>
   );
-}
-
-// const Title = props => (
-//   <div className='App'>
-//     <Title data={data.title}/>
-//   </div>
-// )
 
 
-export default App;
+
+
