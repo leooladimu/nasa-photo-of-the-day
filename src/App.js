@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BASE_URL, API_KEY } from './constants/index';
 import "./App.css";
 import axios from 'axios';
+import Title from './Title';
 
 function App() {
 
@@ -13,16 +14,24 @@ useEffect(() => {
   axios.get(`https://api.nasa.gov/planetary/apod/?api_key=${API_KEY}`)
   .then(res => {
     console.log(res.data);
-    setApod(res)
-    console.log(res.data);
-    // console.log(apod);
+    setApod(res.data)
   })
   .catch(err => {
     console.error(err);
     setError('Sorry')
   })
+  // const Title = props => (
+  //   <div className='App'>
+  //     <Title data={data.title}/>
+  //   </div>
+  // )
 }, [])
 
+const Title = props => (
+  <div className='App'>
+    <Title data={data.title}/>
+  </div>
+)
 
   return (
     <div className="App">
@@ -33,5 +42,12 @@ useEffect(() => {
     </div>
   );
 }
+
+// const Title = props => (
+//   <div className='App'>
+//     <Title data={data.title}/>
+//   </div>
+// )
+
 
 export default App;
